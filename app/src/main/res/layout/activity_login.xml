@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ll_header"
@@ -18,27 +18,26 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-black"
-            android:text="Health \n     Calc"
+            android:text="Health \n    Calc"
             android:textColor="@android:color/white"
             android:textSize="35sp" />
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginStart="165dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/icone_branco_preenchido" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <ImageView
         android:src="@drawable/ic_wave_bottom"
         android:id="@+id/wave_top"
         android:scaleY="-1"
-        android:scaleZ="-1"
-        android:scaleType="fitEnd"
+        android:scaleType="centerCrop"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="65dp"
         android:layout_below="@+id/ll_header"/>
 
 
@@ -50,6 +49,7 @@
         android:textSize="35sp"
         android:textStyle="bold"
         android:layout_below="@+id/wave_top"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"/>
 
     <TextView
@@ -86,7 +86,8 @@
         android:background="@drawable/activity_border_blue"
         android:padding="15dp"
         android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="8dp"/>
+        android:drawablePadding="8dp"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/button_entrar"
@@ -119,25 +120,30 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"/>
 
-    <TextView
-        android:id="@+id/text_view_criar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Criar uma conta agora"
-        android:layout_below="@+id/text_view_esqueci"
-        android:layout_alignEnd="@+id/text_view_esqueci"
-        android:clickable="true"
-        android:textStyle="bold"
-        android:textColor="@color/blueIMC" />
-
-    <TextView
-        android:id="@+id/text_view_sem_conta"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Não tem uma conta?"
-        android:layout_below="@+id/text_view_esqueci"
-        android:gravity="center"
-        android:layout_marginEnd="60dp"/>
+        android:gravity="end"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/text_view_esqueci">
+
+        <TextView
+            android:id="@+id/text_view_sem_conta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Não tem uma conta?"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/text_view_criar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Criar uma conta agora"
+            android:clickable="true"
+            android:textStyle="bold"
+            android:textColor="@color/blueIMC" />
+
+    </LinearLayout>
 
 
     <ImageView
@@ -146,6 +152,18 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-22dp"
-        android:scaleType="fitEnd"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_wave_bottom" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desenvolvido por DS2M"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        />
 </RelativeLayout>
