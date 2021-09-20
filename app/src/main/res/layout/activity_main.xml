@@ -65,17 +65,23 @@
                 android:inputType="numberDecimal"
                 android:maxLength="4"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_calcular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Calcular"
+                app:backgroundTint="@null"
                 android:background="@drawable/activity_border_background"
+                android:text="Calcular"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:padding="15dp"
+                android:padding="7.5dp"
                 android:fontFamily="sans-serif-black"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:letterSpacing="0">
+
+
+            </com.google.android.material.button.MaterialButton>
+            
 
             <TextView
                 android:id="@+id/text_view_resultado"
