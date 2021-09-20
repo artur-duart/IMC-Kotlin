@@ -9,4 +9,6 @@
     <color name="purpleIMC">#962FBF</color>
     <color name="blueIMC">#4F5BD5</color>
     <color name="black">#000000</color>
+    <color name="white1">#FAFAFA</color>
+    <color name="white2">#FFFFFF</color>
 </resources>

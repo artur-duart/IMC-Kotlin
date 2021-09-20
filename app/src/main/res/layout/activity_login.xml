@@ -90,15 +90,20 @@
         android:drawablePadding="8dp"
         android:inputType="textPassword"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_entrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Entrar"
         android:layout_below="@id/edit_text_senha"
+        app:backgroundTint="@null"
         android:background="@drawable/activity_background_blue"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:letterSpacing="0"
+        android:textSize="16sp">
+
+    </com.google.android.material.button.MaterialButton>
 
     <CheckBox
         android:id="@+id/check_box_lembrar"
