@@ -33,6 +33,7 @@
             android:fontFamily="@font/montserrat_bold"
             android:text="Trocar foto"
             android:textColor="@color/blueIMC"
+            android:layout_marginTop="4dp"
             android:textSize="18sp" />
     </LinearLayout>
 
