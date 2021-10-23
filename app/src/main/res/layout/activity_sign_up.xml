@@ -63,9 +63,11 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text">
 
                 <EditText
+                    android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="E-mail"/>
@@ -80,10 +82,11 @@
                 android:layout_marginBottom="12dp">
 
                 <EditText
+                    android:id="@+id/et_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Senha"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -100,9 +103,11 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text">
 
                 <EditText
+                    android:id="@+id/et_nome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nome"/>
@@ -113,9 +118,11 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                app:endIconMode="clear_text">
 
                 <EditText
+                    android:id="@+id/et_profissao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Profissão"/>
@@ -124,13 +131,16 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text">
 
                 <EditText
+                    android:id="@+id/et_altura"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Altura"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:inputType="numberDecimal"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -139,12 +149,16 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <EditText
+                    android:id="@+id/et_data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Data de nascimento"/>
+                    android:hint="Data de nascimento"
+                    android:focusable="false"
+                    android:inputType="date"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <RadioGroup
+                android:id="@+id/rg_sexo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -160,6 +174,7 @@
                     android:layout_marginEnd="10dp"/>
 
                 <RadioButton
+                    android:id="@+id/rb_feminino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Feminino"
@@ -168,6 +183,7 @@
                     android:layout_marginEnd="10dp"/>
 
                 <RadioButton
+                    android:id="@+id/rb_masculino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Masculino"
