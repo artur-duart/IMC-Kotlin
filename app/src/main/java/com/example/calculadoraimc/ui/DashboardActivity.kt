@@ -1,10 +1,10 @@
-package com.example.calculadoraimc
+package com.example.calculadoraimc.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.cardview.widget.CardView
-import com.google.android.material.button.MaterialButton
+import com.example.calculadoraimc.R
 
 class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

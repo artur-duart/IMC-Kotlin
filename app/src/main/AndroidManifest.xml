@@ -9,10 +9,10 @@
         android:roundIcon="@drawable/imc"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DashboardActivity"/>
-        <activity android:name=".SignUpActivity"/>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ui.DashboardActivity"/>
+        <activity android:name=".ui.SignUpActivity"/>
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

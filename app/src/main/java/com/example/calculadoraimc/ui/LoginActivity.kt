@@ -1,9 +1,10 @@
-package com.example.calculadoraimc
+package com.example.calculadoraimc.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.calculadoraimc.R
 import com.google.android.material.button.MaterialButton
 
 class LoginActivity : AppCompatActivity() {
