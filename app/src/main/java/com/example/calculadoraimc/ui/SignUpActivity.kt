@@ -2,19 +2,24 @@ package com.example.calculadoraimc.ui
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.opengl.ETC1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
+import androidx.core.view.drawToBitmap
 import com.example.calculadoraimc.R
 import com.example.calculadoraimc.model.Usuario
+import com.example.calculadoraimc.utils.convertBitmapToBase64
 import com.example.calculadoraimc.utils.convertStringToLocalDate
 import java.time.LocalDate
 import java.util.*
+
+const val CODE_IMAGE = 100
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -27,7 +32,9 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var radioGroupSexo : RadioGroup
     lateinit var radioButtonFem : RadioButton
     lateinit var radioButtonMasc : RadioButton
-
+    lateinit var tvTrocarFoto : TextView
+    lateinit var  ivFotoPerfil : ImageView
+    var imageBitmap : Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +50,13 @@ class SignUpActivity : AppCompatActivity() {
         radioGroupSexo = findViewById<RadioGroup>(R.id.rg_sexo)
         radioButtonFem = findViewById<RadioButton>(R.id.rb_feminino)
         radioButtonMasc = findViewById<RadioButton>(R.id.rb_masculino)
+        tvTrocarFoto = findViewById<TextView>(R.id.tv_trocar_foto)
+        ivFotoPerfil = findViewById<ImageView>(R.id.iv_foto_perfil)
+        var imageBitmap : Bitmap
+
+        tvTrocarFoto.setOnClickListener{
+            abrirGaleria()
+        }
 
         // Criando um calendário
         val calendario = Calendar.getInstance()
@@ -57,11 +71,57 @@ class SignUpActivity : AppCompatActivity() {
 
         etDataNascimento.setOnClickListener {
             val dp = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, _ano, _mes, _dia ->
-                etDataNascimento.setText("$_dia/${_mes + 1}/$_ano")
+
+                var diaFinal = _dia
+                var mesFinal = _mes + 1
+
+                var diaString = "$diaFinal"
+                var mesString = "$mesFinal"
+
+                if (mesFinal < 10) {
+                    mesString = "0$mesFinal"
+                }
+
+                if (diaFinal < 10) {
+                    diaString = "0$diaFinal"
+                }
+
+                etDataNascimento.setText("$diaString/$mesString/$_ano")
             }, ano, mes, dia)
 
             dp.show()
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, imagem: Intent?) {
+        super.onActivityResult(requestCode, resultCode, imagem)
+
+        if (requestCode == CODE_IMAGE && resultCode == -1) {
+            val fluxoImagem = contentResolver.openInputStream(imagem!!.data!!)
+
+            // Converter os bits em um bitmap
+            imageBitmap = BitmapFactory.decodeStream(fluxoImagem)
+
+            // Colocar o bitmap no ImageView
+            ivFotoPerfil.setImageBitmap(imageBitmap)
+        }
+
+    }
+
+    private fun abrirGaleria() {
+
+        // Abrir a galeria de imagens do dispositivo
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+
+        // Abrir a Activity responsável por exibir as imagens
+        // Esta Activity retornará o conteúdo selecionado para o nosso app
+
+        startActivityForResult(
+            Intent.createChooser(intent,
+            "Escolha uma foto"),
+            CODE_IMAGE
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -92,7 +152,8 @@ class SignUpActivity : AppCompatActivity() {
                     'F'
                 } else {
                     'M'
-                }
+                },
+            convertBitmapToBase64(imageBitmap!!)
             )
 
             // Salvar o registro
@@ -117,6 +178,7 @@ class SignUpActivity : AppCompatActivity() {
             editor.putString("dataNascimento", usuario.dataNascimento.toString())
             editor.putString("profissao", usuario.profissao)
             editor.putString("sexo", usuario.sexo.toString())
+            editor.putString("fotoPerfil", usuario.fotoPerfil)
             editor.apply()
         }
 
