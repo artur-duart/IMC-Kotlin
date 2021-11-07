@@ -1,19 +1,13 @@
-package com.example.calculadoraimc.utils
+package com.example.primeiroapp.utils
 
 import android.graphics.Bitmap
-import android.util.Base64
 import java.io.ByteArrayOutputStream
+import java.util.*
 
-
-fun convertBitmapToBase64(bitmap: Bitmap) : String {
-    val bitmapArray = ByteArrayOutputStream()
-
-    bitmap.compress(
-        Bitmap.CompressFormat.JPEG,
-        100,
-        bitmapArray)
-
-    return Base64.encodeToString(
-        bitmapArray.toByteArray(),
-        Base64.DEFAULT)
+fun encodeImage(bm: Bitmap): String? {
+    val baos = ByteArrayOutputStream()
+    bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+    val b = baos.toByteArray()
+//    Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT)
+    return Base64.getEncoder().encodeToString(b)
 }

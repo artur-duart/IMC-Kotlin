@@ -1,4 +1,4 @@
-package com.example.calculadoraimc.ui
+    package com.example.calculadoraimc.ui
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -14,8 +14,8 @@ import android.widget.*
 import androidx.core.view.drawToBitmap
 import com.example.calculadoraimc.R
 import com.example.calculadoraimc.model.Usuario
-import com.example.calculadoraimc.utils.convertBitmapToBase64
 import com.example.calculadoraimc.utils.convertStringToLocalDate
+import com.example.primeiroapp.utils.encodeImage
 import java.time.LocalDate
 import java.util.*
 
@@ -117,11 +117,7 @@ class SignUpActivity : AppCompatActivity() {
         // Abrir a Activity responsável por exibir as imagens
         // Esta Activity retornará o conteúdo selecionado para o nosso app
 
-        startActivityForResult(
-            Intent.createChooser(intent,
-            "Escolha uma foto"),
-            CODE_IMAGE
-        )
+        startActivityForResult(Intent.createChooser(intent, "Escolha uma foto"), CODE_IMAGE)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -134,6 +130,7 @@ class SignUpActivity : AppCompatActivity() {
         if(validarCampos()) {
             // Criar o objeto usuario
             val nascimento = convertStringToLocalDate(editDataNascimento.text.toString())
+            val perfil = encodeImage(ivFotoPerfil.drawToBitmap())
 
             val usuario = Usuario(
                 1,
@@ -153,7 +150,7 @@ class SignUpActivity : AppCompatActivity() {
                 } else {
                     'M'
                 },
-            convertBitmapToBase64(imageBitmap!!)
+                perfil.toString()
             )
 
             // Salvar o registro

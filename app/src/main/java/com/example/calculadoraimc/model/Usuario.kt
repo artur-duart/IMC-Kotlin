@@ -2,7 +2,7 @@ package com.example.calculadoraimc.model
 
 import java.time.LocalDate
 
-data class Usuario (
+data class  Usuario (
     var id: Int,
     var nome: String,
     var email: String,
