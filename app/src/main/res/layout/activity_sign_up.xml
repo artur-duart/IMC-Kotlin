@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/perfil1"/>
+                android:src="@drawable/perfil_padrao"/>
         </androidx.cardview.widget.CardView>
 
         <TextView

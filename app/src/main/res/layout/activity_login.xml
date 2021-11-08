@@ -67,8 +67,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_login_continuar"
+        android:textColorHint="@android:color/darker_gray"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:textSize="18dp"
         android:layout_marginBottom="15dp"
         android:hint="E-mail"
         android:background="@drawable/activity_border_blue"
@@ -80,15 +82,18 @@
         android:id="@+id/edit_text_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="18dp"
         android:layout_below="@id/edit_text_email"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:hint="Senha"
+        android:textColorHint="@android:color/darker_gray"
         android:background="@drawable/activity_border_blue"
         android:padding="15dp"
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="8dp"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:layout_marginBottom="12dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_entrar"

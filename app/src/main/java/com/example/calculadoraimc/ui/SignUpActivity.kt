@@ -54,6 +54,9 @@ class SignUpActivity : AppCompatActivity() {
         ivFotoPerfil = findViewById<ImageView>(R.id.iv_foto_perfil)
         var imageBitmap : Bitmap
 
+        // Carregar bitmap padrão caso o usuário não escolha uma foto
+        // imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.perfil_padrao)
+
         tvTrocarFoto.setOnClickListener{
             abrirGaleria()
         }
