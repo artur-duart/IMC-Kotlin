@@ -3,10 +3,12 @@ package com.example.calculadoraimc.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.example.calculadoraimc.R
+import com.example.primeiroapp.utils.convertBase64ToBitmap
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(abrirMainActivity )
         }
 
+        val ivPerfil = findViewById<ImageView>(R.id.iv_foto_perfil_dashboard)
         val tvNome = findViewById<TextView>(R.id.tv_nome)
         val tvProfissao = findViewById<TextView>(R.id.tv_profissao)
         val tvImc = findViewById<TextView>(R.id.tv_imc)
@@ -36,10 +39,12 @@ class DashboardActivity : AppCompatActivity() {
         val altura = arquivo.getFloat("altura", 0.00F)
         val dtNascimento = arquivo.getString("dataNascimento", "")
 
-
         tvNome.setText(nome.toString())
         tvProfissao.setText(profissao.toString())
         tvAltura.setText(altura.toString())
+
+//        val bitmap = convertBase64ToBitmap(arquivo.getString("fotoPerfil", ""))
+//        ivPerfil.setImageBitmap(bitmap)
 
     }
 }

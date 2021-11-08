@@ -29,6 +29,7 @@
                 app:cardCornerRadius="60dp">
 
                 <ImageView
+                    android:id="@+id/iv_foto_perfil_dashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/perfil_padrao"/>
