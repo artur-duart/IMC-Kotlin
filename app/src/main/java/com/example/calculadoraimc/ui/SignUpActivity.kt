@@ -15,7 +15,7 @@ import androidx.core.view.drawToBitmap
 import com.example.calculadoraimc.R
 import com.example.calculadoraimc.model.Usuario
 import com.example.calculadoraimc.utils.convertStringToLocalDate
-import com.example.primeiroapp.utils.encodeImage
+import com.example.primeiroapp.utils.convertBitmapToBase64
 import java.time.LocalDate
 import java.util.*
 
@@ -52,10 +52,9 @@ class SignUpActivity : AppCompatActivity() {
         radioButtonMasc = findViewById<RadioButton>(R.id.rb_masculino)
         tvTrocarFoto = findViewById<TextView>(R.id.tv_trocar_foto)
         ivFotoPerfil = findViewById<ImageView>(R.id.iv_foto_perfil)
-        var imageBitmap : Bitmap
 
         // Carregar bitmap padrão caso o usuário não escolha uma foto
-        // imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.perfil_padrao)
+        imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.perfil_padrao)
 
         tvTrocarFoto.setOnClickListener{
             abrirGaleria()
@@ -133,7 +132,6 @@ class SignUpActivity : AppCompatActivity() {
         if(validarCampos()) {
             // Criar o objeto usuario
             val nascimento = convertStringToLocalDate(editDataNascimento.text.toString())
-            val perfil = encodeImage(ivFotoPerfil.drawToBitmap())
 
             val usuario = Usuario(
                 1,
@@ -153,7 +151,7 @@ class SignUpActivity : AppCompatActivity() {
                 } else {
                     'M'
                 },
-                perfil.toString()
+                convertBitmapToBase64(imageBitmap!!)
             )
 
             // Salvar o registro
