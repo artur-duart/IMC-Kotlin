@@ -31,8 +31,8 @@ class DashboardActivity : AppCompatActivity() {
         val cvPesarAgora = findViewById<CardView>(R.id.cv_pesar)
 
         cvPesarAgora.setOnClickListener {
-            val abrirMainActivity = Intent(this, MainActivity::class.java)
-            startActivity(abrirMainActivity )
+            val abrirPesagemActivity = Intent(this, PesagemActivity::class.java)
+            startActivity(abrirPesagemActivity )
         }
 
         tvNome = findViewById(R.id.tv_nome)
