@@ -31,7 +31,7 @@ class DashboardActivity : AppCompatActivity() {
         val cvPesarAgora = findViewById<CardView>(R.id.cv_pesar)
 
         cvPesarAgora.setOnClickListener {
-            val abrirPesagemActivity = Intent(this, PesagemActivity::class.java)
+            val abrirPesagemActivity = Intent(this, PesagemActivity2::class.java)
             startActivity(abrirPesagemActivity )
         }
 

@@ -6,89 +6,111 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.MainActivity"
-    android:background="@drawable/activity_background"
-    android:padding="30dp">
+    android:background="@drawable/activity_background">
 
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/icone_branco_preenchido"
-        android:layout_gravity="center"/>
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pesagem"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif-black"
-        android:layout_marginTop="-5dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-    <TextView
-        android:id="@+id/et_data_pesagem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:textColor="@android:color/white"
-        android:background="@drawable/activity_border"
-        android:drawableStart="@drawable/ic_calendar"
-        android:drawablePadding="8dp"
-        android:padding="15dp"
-        android:layout_marginBottom="15dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp">
 
-    <EditText
-        android:id="@+id/et_peso_pesagem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Digite seu peso..."
-        android:textColorHint="@android:color/white"
-        android:textColor="@android:color/white"
-        android:background="@drawable/activity_border"
-        android:drawableStart="@drawable/ic_weight"
-        android:drawablePadding="8dp"
-        android:padding="15dp"
-        android:layout_marginBottom="25dp"
-        android:inputType="numberDecimal"
-        android:maxLength="4"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/icone_branco_preenchido"
+                android:layout_gravity="center"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_registrar_peso"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:backgroundTint="@null"
-        android:background="@drawable/activity_border_background"
-        android:text="Registrar novo peso"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:padding="7.5dp"
-        android:fontFamily="sans-serif-black"
-        android:layout_marginBottom="30dp"
-        android:letterSpacing="0">
-    </com.google.android.material.button.MaterialButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pesagem"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginTop="-5dp"
+                android:layout_marginBottom="20dp"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/et_data_pesagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/activity_border"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="8dp"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp" />
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/diet" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/niveis"
+                android:background="@drawable/activity_border"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="*Mantenha seu peso sempre atualizado, assim você poderá acompanhar sua evolução"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:paddingLeft="5dp"/>
+            <EditText
+                android:id="@+id/et_peso_pesagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite seu peso..."
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:background="@drawable/activity_border"
+                android:drawableStart="@drawable/ic_weight"
+                android:drawablePadding="8dp"
+                android:padding="15dp"
+                android:layout_marginBottom="25dp"
+                android:inputType="numberDecimal"
+                android:maxLength="4"/>
 
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_registrar_novo_peso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:background="@drawable/activity_border_background"
+                android:text="Registrar novo peso"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:padding="7.5dp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="30dp"
+                android:letterSpacing="0">
+            </com.google.android.material.button.MaterialButton>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/diet" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*Mantenha seu peso sempre atualizado, assim você poderá acompanhar sua evolução"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:paddingLeft="5dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

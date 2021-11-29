@@ -21,16 +21,16 @@ class PesagemActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pesagem)
         supportActionBar!!.hide()
 
-        tvDataAtual = findViewById(R.id.et_data_pesagem)
+        tvDataAtual = findViewById(R.id.et_data_pesagem_2)
 
         val date = Calendar.getInstance().time
 
         var dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         tvDataAtual.text = dateTimeFormat.format(date)
 
-        var btnSalvarPeso = findViewById<MaterialButton>(R.id.btn_registrar_peso)
+        var btnRegistrarPeso = findViewById<MaterialButton>(R.id.btn_registrar_novo_peso)
 
-        btnSalvarPeso.setOnClickListener {
+        btnRegistrarPeso.setOnClickListener {
             Toast.makeText(this, "Peso registrado!", Toast.LENGTH_SHORT).show()
         }
     }
