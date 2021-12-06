@@ -3,11 +3,13 @@ package com.example.calculadoraimc.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.example.calculadoraimc.R
+import com.example.calculadoraimc.repository.PesagemRepository
 import com.example.calculadoraimc.utils.calcularIdade
 import com.example.primeiroapp.utils.convertBase64ToBitmap
 
@@ -22,6 +24,7 @@ class DashboardActivity : AppCompatActivity() {
     lateinit var tvIdade: TextView
     lateinit var tvAltura: TextView
     lateinit var ivPerfil: ImageView
+    lateinit var cvHistorico: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +46,19 @@ class DashboardActivity : AppCompatActivity() {
         tvIdade = findViewById(R.id.tv_idade)
         tvImc = findViewById(R.id.tv_imc)
         ivPerfil = findViewById(R.id.iv_foto_perfil_dashboard)
+        cvHistorico = findViewById(R.id.cv_historico)
+
+        cvHistorico.setOnClickListener {
+            // val pesagemRepository = PesagemRepository(this)
+            // val listaPesagem = pesagemRepository.getListaPesagem()
+
+            //for (p in listaPesagem) {
+                //Log.i ("xpto", "${p.dataPesagem} - ${p.peso}")
+            //}
+
+            val abrirHistoricoActivity = Intent(this, HistoricoActivity::class.java)
+            startActivity(abrirHistoricoActivity)
+        }
 
         carregarDashboard()
     }
